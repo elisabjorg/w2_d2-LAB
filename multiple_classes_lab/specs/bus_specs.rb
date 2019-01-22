@@ -2,6 +2,7 @@ require("minitest/autorun")
 require("minitest/rg")
 require_relative("../bus")
 require_relative("../person")
+require_relative("../bus_stop")
 
 class BusTest < MiniTest::Test
 
@@ -44,4 +45,12 @@ class BusTest < MiniTest::Test
     assert_equal(0, @bus.passengers().count())
   end
 
-end
+  def test_pick_up_from_stop()
+    @stop_1 = BusStop.new("Princess Street")
+    @stop_1.add_to_queue(@passenger_1)
+    @bus.pick_up_from_stop(@stop_1)
+    assert_equal(1, @bus.passengers().count())
+    assert_equal(0, @stop_1.queue().length())
+  end
+
+  end
