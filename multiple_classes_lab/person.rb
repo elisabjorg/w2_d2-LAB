@@ -7,9 +7,7 @@ def initialize (name, age)
   @age = age
 end
 
-def pick_up(person)
-  @name.pick_up(person)
-end
+
 
 
 end
